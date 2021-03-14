@@ -1,5 +1,8 @@
 @import './init/variables.scss';
 @import './init/layout.scss';
-@import './init/inputs.scss';
+
+@import './components/inputs.scss';
+@import './components/nextStepButton.scss';
 
 @import './pages/products.scss';
+@import './pages/cart.scss';

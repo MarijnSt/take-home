@@ -68,6 +68,32 @@ body #app .app-container h1 {
   opacity: 1;
 }
 
+.toCart {
+  width: 100%;
+  background: #0a84ff;
+  padding: 1rem;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #0a84ff;
+  transition: all 0.3s ease;
+}
+.toCart:hover {
+  background: white;
+  color: #0a84ff;
+}
+.disableButton.toCart {
+  cursor: not-allowed;
+  opacity: 0.25;
+}
+.disableButton.toCart:hover {
+  background: #0a84ff;
+  color: white;
+}
+
 .product-list {
   margin: 3rem 0;
   flex: 1;
@@ -116,27 +142,88 @@ body #app .app-container h1 {
   color: white;
 }
 
-.toCart {
-  width: 100%;
-  background: #0a84ff;
-  padding: 1rem;
-  color: white;
-  font-weight: 600;
-  position: relative;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 2px solid #0a84ff;
-  transition: all 0.3s ease;
-}
 .toCart .number {
   position: absolute;
   right: 1.5rem;
   bottom: 1rem;
 }
-.toCart:hover {
-  background: white;
+
+.cart-item-container {
+  border: 1px solid #e4e3e3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  height: 7rem;
+}
+.cart-item-container .quantity {
   color: #0a84ff;
+  margin-right: 1.5rem;
+  font-weight: 600;
+  height: 100%;
+  position: relative;
+  top: 4px;
+}
+.cart-item-container .info {
+  flex: 1;
+}
+.cart-item-container .info .controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+}
+.cart-item-container .info .controls .change-quantity {
+  padding: 0.25rem 0.5rem;
+  background: #e4e3e3;
+  border-radius: 5px;
+  display: flex;
+  margin-right: 1rem;
+}
+.cart-item-container .info .controls .change-quantity .divider {
+  margin: 0 0.5rem;
+  color: #afafaf;
+}
+.cart-item-container .info .controls .change-quantity .decrease,
+.cart-item-container .info .controls .change-quantity .increase {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.cart-item-container .info .controls .change-quantity .decrease svg,
+.cart-item-container .info .controls .change-quantity .increase svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.cart-item-container .info .controls .delete {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+.cart-item-container .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-align: right;
+  height: 100%;
+}
+.cart-item-container .right .chevron-icon {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  left: 3px;
+  top: 7px;
+  fill: #5f5f5f;
+}
+.cart-item-container .right .price {
+  color: #afafaf;
 }
 
 /*# sourceMappingURL=main.css.map */

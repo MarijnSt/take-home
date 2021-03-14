@@ -10,7 +10,10 @@
       @add-to-cart="addToCart"/>
     </div>
     <!-- viewcart -->
-    <div class="toCart">
+    <div 
+    class="nextStep toCart"
+    :class="{ disableButton: cart.length === 0}"
+    @click="viewCart">
       View Cart
       <span class="number">{{ numberOfCartItems }}</span>
     </div>
@@ -19,10 +22,10 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
-import { Product } from '../interfaces/Product' 
-import { CartItem } from '../interfaces/CartItem'
-import FormInput from './FormInput.vue'
-import ProductDisplay from './ProductDisplay.vue'
+import { Product } from '../../interfaces/Product' 
+import { CartItem } from '../../interfaces/CartItem'
+import FormInput from '../FormInput.vue'
+import ProductDisplay from '../ProductDisplay.vue'
 
 @Component({
   components: {
@@ -55,6 +58,11 @@ export default class Products extends Vue {
   @Emit('add-to-cart')
   addToCart(product: Product) {
       return product
+  }
+
+  @Emit('view-cart')
+  viewCart() {
+    // console.log('view cart')
   }
 
   // computed values

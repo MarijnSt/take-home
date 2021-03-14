@@ -1,0 +1,88 @@
+.cart-item-container {
+    border: 1px solid $light-grey;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    height: 7rem;
+
+    .quantity {
+        color: $blue;
+        margin-right: 1.5rem;
+        font-weight: 600;
+        height: 100%;
+        position: relative;
+        top: 4px;
+    }
+
+    .info {
+        flex: 1;
+
+        .controls {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 1rem;
+
+            .change-quantity {
+                padding: .25rem .5rem;
+                background: $light-grey;
+                border-radius: 5px;
+                display: flex;
+                margin-right: 1rem;
+
+                .divider {
+                    margin: 0 .5rem;
+                    color: $grey;
+                }
+                
+                .decrease,
+                .increase {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+    
+                    svg {
+                        width: .75rem;
+                        height: .75rem;
+                    }
+                }
+            }
+
+            
+            .delete {
+                width: 1.5rem;
+                height: 1.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        text-align: right;
+        height: 100%;
+
+        .chevron-icon {
+            width: 1rem;
+            height: 1rem;
+            position: relative;
+            left: 3px;
+            top: 7px;
+            fill: $dark-grey;
+        }
+
+        .price {
+            color: $grey;
+        }
+    }
+}
