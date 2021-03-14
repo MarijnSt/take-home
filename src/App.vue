@@ -1,29 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Products :cart="cart" @add-to-cart="updateCart"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import Products from './components/Products.vue';
+import { CartItem } from './interfaces/CartItem'
+import { Product } from './interfaces/Product'
 
 @Component({
   components: {
-    HelloWorld,
+    Products
   },
 })
-export default class App extends Vue {}
-</script>
+export default class App extends Vue {
+  cart: CartItem[] = []
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  updateCart(product: Product) {
+    // check of product al in cart zit --> quantity verhogen
+    const checkedArray = this.cart.filter(item => item.id === product.id)
+    if (checkedArray.length) {
+      const i = this.cart.indexOf(checkedArray[0])
+      this.cart[i].quantity += 1
+    } else {
+      const cartItem: CartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1
+      }
+      this.cart.push(cartItem)
+    }
+  }
 }
-</style>
+</script>

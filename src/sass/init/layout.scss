@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $light-grey;
+    display: flex;
+    justify-content: center;
+
+    #app {
+        background: white;
+        font-family: $mainFont;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: fontColor;
+        width: 600px;
+        max-width: 600px;
+        min-height: 100vh;
+
+        .app-container {
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            h1 {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
