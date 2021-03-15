@@ -14,7 +14,18 @@
 
     <Checkout
     v-if="page === 'checkout'"
-    :cart="cart"/>
+    :cart="cart"
+    @place-order="placeOrder"/>
+
+    <Confirm
+    v-if="page === 'confirm'"
+    :orderNumber="order[0].id"
+    @view-order="viewOrder"/>
+
+    <OrderSummary
+    v-if="page === 'orderSummary'"
+    :order="order[0]"
+    />
   </div>
 </template>
 
@@ -23,19 +34,25 @@ import { Component, Vue } from 'vue-property-decorator';
 import Products from './components/pages/Products.vue';
 import Cart from './components/pages/Cart.vue';
 import Checkout from './components/pages/Checkout.vue';
+import Confirm from './components/pages/Confirm.vue';
+import OrderSummary from './components/pages/OrderSummary.vue';
 import { CartItem } from './interfaces/CartItem'
 import { Product } from './interfaces/Product'
+import { Order } from './interfaces/Order';
 
 @Component({
   components: {
     Products,
     Cart,
-    Checkout
+    Checkout,
+    Confirm,
+    OrderSummary
   },
 })
 export default class App extends Vue {
   // data
   cart: CartItem[] = []
+  order: Order[] = []
   page = 'products'
 
   // methods
@@ -61,6 +78,16 @@ export default class App extends Vue {
     this.nextStep('checkout')
   }
 
+  placeOrder(order: Order) {
+    this.order.push(order)
+    console.log('app', this.order)
+    this.nextStep('confirm')
+  }
+
+  viewOrder(){
+    this.nextStep('orderSummary')
+  }
+
   nextStep(step: string) {
     switch (step) {
       case 'cart':
@@ -68,6 +95,12 @@ export default class App extends Vue {
         break;
       case 'checkout':
         this.page = 'checkout'
+        break;
+      case 'confirm':
+        this.page = 'confirm'
+        break;
+      case 'orderSummary':
+        this.page = 'orderSummary'
         break;
     }
   }

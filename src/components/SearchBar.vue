@@ -25,7 +25,7 @@
 import { Vue, Component, Emit } from 'vue-property-decorator'
 
 @Component
-export default class FormInput extends Vue {
+export default class SearchBar extends Vue {
     inputValue = ''
 
     @Emit('input-change')

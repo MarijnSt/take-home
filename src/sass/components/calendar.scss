@@ -1,0 +1,47 @@
+.date-picker {
+    position: relative;
+    cursor: pointer;
+    margin-top: .5rem;
+    
+    .calendar-container {
+        .date-input {
+            cursor: pointer;
+            @extend %basic-input;
+            font-size: 1rem;
+            outline: none;
+            border: none;
+            color: black;
+            font-family: $mainFont;
+    
+            &::placeholder {
+                color: $grey;
+                opacity: 1;
+            }
+        }
+    
+        .calendar {
+            width: 100%;
+            margin-top: .5rem;
+            border-radius: 5px;
+
+            .cell:not(.blank):not(.disabled).day:hover {
+                border: 1px solid $blue;
+            }
+    
+            .cell.selected, 
+            .cell.selected:hover {
+                background: $blue;
+                color: white;
+            }
+        }
+    }
+
+    .calendar-icon {
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        right: 1rem;
+        top: .65rem;
+        fill: $grey;
+    }
+}

@@ -29,7 +29,7 @@ body #app .app-container h1 {
   margin-bottom: 1.5rem;
 }
 
-.search-bar {
+.checkout-content .details .details-input .input-container, .search-bar, .date-picker .calendar-container .date-input {
   background: #e4e3e3;
   width: 100%;
   padding: 0.75rem 1rem;
@@ -38,20 +38,22 @@ body #app .app-container h1 {
   flex-direction: row;
   align-items: center;
 }
-.search-bar .close-icon,
-.search-bar .search-icon {
+.checkout-content .details .details-input .input-container .close-icon, .search-bar .close-icon, .date-picker .calendar-container .date-input .close-icon,
+.checkout-content .details .details-input .input-container .search-icon,
+.search-bar .search-icon,
+.date-picker .calendar-container .date-input .search-icon {
   fill: #afafaf;
   width: 1rem;
   height: 1rem;
 }
-.search-bar .close-icon {
+.checkout-content .details .details-input .input-container .close-icon, .search-bar .close-icon, .date-picker .calendar-container .date-input .close-icon {
   cursor: pointer;
 }
-.search-bar .search-icon {
+.checkout-content .details .details-input .input-container .search-icon, .search-bar .search-icon, .date-picker .calendar-container .date-input .search-icon {
   stroke: #afafaf;
   stroke-width: 10px;
 }
-.search-bar input {
+.checkout-content .details .details-input .input-container input, .search-bar input, .date-picker .calendar-container .date-input input {
   margin-left: 1rem;
   width: 100%;
   background: none;
@@ -63,12 +65,12 @@ body #app .app-container h1 {
   position: relative;
   top: 1px;
 }
-.search-bar input::placeholder {
+.checkout-content .details .details-input .input-container input::placeholder, .search-bar input::placeholder, .date-picker .calendar-container .date-input input::placeholder {
   color: black;
   opacity: 1;
 }
 
-.toCheckout, .toCart {
+.place-order, .toCheckout, .toCart {
   width: 100%;
   background: #0a84ff;
   padding: 1rem;
@@ -81,17 +83,56 @@ body #app .app-container h1 {
   border: 2px solid #0a84ff;
   transition: all 0.3s ease;
 }
-.toCheckout:hover, .toCart:hover {
+.place-order:hover, .toCheckout:hover, .toCart:hover {
   background: white;
   color: #0a84ff;
 }
-.disableButton.toCheckout, .disableButton.toCart {
+.disableButton.place-order, .disableButton.toCheckout, .disableButton.toCart {
   cursor: not-allowed;
   opacity: 0.25;
 }
-.disableButton.toCheckout:hover, .disableButton.toCart:hover {
+.disableButton.place-order:hover, .disableButton.toCheckout:hover, .disableButton.toCart:hover {
   background: #0a84ff;
   color: white;
+}
+
+.date-picker {
+  position: relative;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.date-picker .calendar-container .date-input {
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  color: black;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+.date-picker .calendar-container .date-input::placeholder {
+  color: #afafaf;
+  opacity: 1;
+}
+.date-picker .calendar-container .calendar {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+.date-picker .calendar-container .calendar .cell:not(.blank):not(.disabled).day:hover {
+  border: 1px solid #0a84ff;
+}
+.date-picker .calendar-container .calendar .cell.selected,
+.date-picker .calendar-container .calendar .cell.selected:hover {
+  background: #0a84ff;
+  color: white;
+}
+.date-picker .calendar-icon {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  right: 1rem;
+  top: 0.65rem;
+  fill: #afafaf;
 }
 
 .product-list {
@@ -227,6 +268,49 @@ body #app .app-container h1 {
 }
 .cart-list .cart-item-container .right .price {
   color: #afafaf;
+}
+
+.checkout-content {
+  flex: 1;
+}
+.checkout-content .details h2,
+.checkout-content .delivery h2 {
+  margin-bottom: 1rem;
+}
+.checkout-content .details label,
+.checkout-content .delivery label {
+  color: #afafaf;
+  margin-bottom: 0.5rem;
+}
+.checkout-content .details {
+  margin-bottom: 1.5rem;
+}
+.checkout-content .details .details-input {
+  margin: 0.75rem 0;
+}
+.checkout-content .details .details-input .input-container {
+  margin-top: 0.5rem;
+}
+.checkout-content .details .details-input .input-container input {
+  margin-left: 0;
+}
+
+.confirm-container {
+  text-align: center;
+  margin-top: 5rem;
+}
+.confirm-container .title {
+  font-size: 3rem;
+}
+.confirm-container .subtitle {
+  font-size: 2rem;
+  color: #afafaf;
+}
+.confirm-container .toOrder {
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #0a84ff;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

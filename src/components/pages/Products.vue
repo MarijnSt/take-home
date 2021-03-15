@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <h1>Products</h1>
-    <FormInput @input-change="handleInput" @reset-products="resetProducts"/>
+    <SearchBar @input-change="handleInput" @reset-products="resetProducts"/>
 
     <div class="product-list">
       <ProductDisplay 
@@ -24,12 +24,12 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 import { Product } from '../../interfaces/Product' 
 import { CartItem } from '../../interfaces/CartItem'
-import FormInput from '../FormInput.vue'
+import SearchBar from '../SearchBar.vue'
 import ProductDisplay from '../ProductDisplay.vue'
 
 @Component({
   components: {
-    FormInput,
+    SearchBar,
     ProductDisplay
   }
 })

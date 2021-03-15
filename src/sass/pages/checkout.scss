@@ -1,0 +1,37 @@
+.checkout-content {
+    flex: 1;
+    
+    .details,
+    .delivery {
+        h2 {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            // width: 100%;
+            color: $grey;
+            margin-bottom: .5rem;
+        }
+    }
+    
+    .details {
+        margin-bottom: 1.5rem;
+        
+        .details-input {
+            margin: .75rem 0;
+        
+            .input-container {
+                @extend %basic-input;
+                margin-top: .5rem;
+        
+                input {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.place-order {
+    @extend %nextStep;
+}
