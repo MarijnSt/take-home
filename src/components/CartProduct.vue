@@ -57,10 +57,6 @@ export default class CartProduct extends Vue {
     @Prop() cartProduct!: CartItem
 
     // methods
-    mounted () {
-        console.log(this.cartProduct)
-    }
-
     @Emit('decrease-quantity')
     decreaseQuantity(){
         return this.cartProduct.id

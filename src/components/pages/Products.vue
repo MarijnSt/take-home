@@ -2,16 +2,16 @@
   <div class="app-container">
     <h1>Products</h1>
     <FormInput @input-change="handleInput" @reset-products="resetProducts"/>
-    <!-- productdisplay -->
+
     <div class="product-list">
       <ProductDisplay 
       v-for="product in listedProducts" :key="product.id" 
       :product="product"
       @add-to-cart="addToCart"/>
     </div>
-    <!-- viewcart -->
+
     <div 
-    class="nextStep toCart"
+    class="toCart"
     :class="{ disableButton: cart.length === 0}"
     @click="viewCart">
       View Cart

@@ -9,8 +9,12 @@
     <Cart
     v-if="page === 'cart'"
     :cart="cart"
-    @update-cart="updateCart"
+    @to-checkout="toCheckout"
     />
+
+    <Checkout
+    v-if="page === 'checkout'"
+    :cart="cart"/>
   </div>
 </template>
 
@@ -18,13 +22,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Products from './components/pages/Products.vue';
 import Cart from './components/pages/Cart.vue';
+import Checkout from './components/pages/Checkout.vue';
 import { CartItem } from './interfaces/CartItem'
 import { Product } from './interfaces/Product'
 
 @Component({
   components: {
     Products,
-    Cart
+    Cart,
+    Checkout
   },
 })
 export default class App extends Vue {
@@ -50,14 +56,18 @@ export default class App extends Vue {
     }
   }
 
-  updateCart(newCart: CartItem[]) {
-    console.log('app', newCart)
+  toCheckout(newCart: CartItem[]) {
+    this.cart = newCart
+    this.nextStep('checkout')
   }
 
   nextStep(step: string) {
     switch (step) {
       case 'cart':
         if (this.cart.length > 0) this.page = 'cart'
+        break;
+      case 'checkout':
+        this.page = 'checkout'
         break;
     }
   }

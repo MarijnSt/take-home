@@ -68,7 +68,7 @@ body #app .app-container h1 {
   opacity: 1;
 }
 
-.toCart {
+.toCheckout, .toCart {
   width: 100%;
   background: #0a84ff;
   padding: 1rem;
@@ -81,15 +81,15 @@ body #app .app-container h1 {
   border: 2px solid #0a84ff;
   transition: all 0.3s ease;
 }
-.toCart:hover {
+.toCheckout:hover, .toCart:hover {
   background: white;
   color: #0a84ff;
 }
-.disableButton.toCart {
+.disableButton.toCheckout, .disableButton.toCart {
   cursor: not-allowed;
   opacity: 0.25;
 }
-.disableButton.toCart:hover {
+.disableButton.toCheckout:hover, .disableButton.toCart:hover {
   background: #0a84ff;
   color: white;
 }
@@ -148,7 +148,10 @@ body #app .app-container h1 {
   bottom: 1rem;
 }
 
-.cart-item-container {
+.cart-list {
+  flex: 1;
+}
+.cart-list .cart-item-container {
   border: 1px solid #e4e3e3;
   display: flex;
   flex-direction: row;
@@ -159,7 +162,7 @@ body #app .app-container h1 {
   padding: 1rem 1.5rem;
   height: 7rem;
 }
-.cart-item-container .quantity {
+.cart-list .cart-item-container .quantity {
   color: #0a84ff;
   margin-right: 1.5rem;
   font-weight: 600;
@@ -167,28 +170,28 @@ body #app .app-container h1 {
   position: relative;
   top: 4px;
 }
-.cart-item-container .info {
+.cart-list .cart-item-container .info {
   flex: 1;
 }
-.cart-item-container .info .controls {
+.cart-list .cart-item-container .info .controls {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 1rem;
 }
-.cart-item-container .info .controls .change-quantity {
+.cart-list .cart-item-container .info .controls .change-quantity {
   padding: 0.25rem 0.5rem;
   background: #e4e3e3;
   border-radius: 5px;
   display: flex;
   margin-right: 1rem;
 }
-.cart-item-container .info .controls .change-quantity .divider {
+.cart-list .cart-item-container .info .controls .change-quantity .divider {
   margin: 0 0.5rem;
   color: #afafaf;
 }
-.cart-item-container .info .controls .change-quantity .decrease,
-.cart-item-container .info .controls .change-quantity .increase {
+.cart-list .cart-item-container .info .controls .change-quantity .decrease,
+.cart-list .cart-item-container .info .controls .change-quantity .increase {
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
@@ -196,17 +199,17 @@ body #app .app-container h1 {
   justify-content: center;
   cursor: pointer;
 }
-.cart-item-container .info .controls .change-quantity .decrease svg,
-.cart-item-container .info .controls .change-quantity .increase svg {
+.cart-list .cart-item-container .info .controls .change-quantity .decrease svg,
+.cart-list .cart-item-container .info .controls .change-quantity .increase svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.cart-item-container .info .controls .delete {
+.cart-list .cart-item-container .info .controls .delete {
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
 }
-.cart-item-container .right {
+.cart-list .cart-item-container .right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -214,7 +217,7 @@ body #app .app-container h1 {
   text-align: right;
   height: 100%;
 }
-.cart-item-container .right .chevron-icon {
+.cart-list .cart-item-container .right .chevron-icon {
   width: 1rem;
   height: 1rem;
   position: relative;
@@ -222,7 +225,7 @@ body #app .app-container h1 {
   top: 7px;
   fill: #5f5f5f;
 }
-.cart-item-container .right .price {
+.cart-list .cart-item-container .right .price {
   color: #afafaf;
 }
 
