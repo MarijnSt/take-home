@@ -70,7 +70,7 @@ body #app .app-container h1 {
   opacity: 1;
 }
 
-.place-order, .toCheckout, .toCart {
+.newOrder, .place-order, .toCheckout, .toCart {
   width: 100%;
   background: #0a84ff;
   padding: 1rem;
@@ -83,15 +83,15 @@ body #app .app-container h1 {
   border: 2px solid #0a84ff;
   transition: all 0.3s ease;
 }
-.place-order:hover, .toCheckout:hover, .toCart:hover {
+.newOrder:hover, .place-order:hover, .toCheckout:hover, .toCart:hover {
   background: white;
   color: #0a84ff;
 }
-.disableButton.place-order, .disableButton.toCheckout, .disableButton.toCart {
+.disableButton.newOrder, .disableButton.place-order, .disableButton.toCheckout, .disableButton.toCart {
   cursor: not-allowed;
   opacity: 0.25;
 }
-.disableButton.place-order:hover, .disableButton.toCheckout:hover, .disableButton.toCart:hover {
+.disableButton.newOrder:hover, .disableButton.place-order:hover, .disableButton.toCheckout:hover, .disableButton.toCart:hover {
   background: #0a84ff;
   color: white;
 }
@@ -296,6 +296,7 @@ body #app .app-container h1 {
 }
 
 .confirm-container {
+  flex: 1;
   text-align: center;
   margin-top: 5rem;
 }
@@ -311,6 +312,16 @@ body #app .app-container h1 {
   font-size: 2rem;
   color: #0a84ff;
   cursor: pointer;
+}
+
+.order-container {
+  flex: 1;
+}
+.order-container .order-summary .section {
+  margin-bottom: 2rem;
+}
+.order-container .order-summary .section h2 {
+  margin-bottom: 0.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

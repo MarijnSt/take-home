@@ -5,7 +5,12 @@
             <p class="subtitle">has been placed</p>
             <p class="toOrder" @click="viewOrder">View Order</p>
         </div>
-        
+        <div 
+        class="newOrder"
+        @click="newOrder"
+        >
+            New order
+        </div>
     </div>
 </template>
 
@@ -18,7 +23,12 @@ export default class Checkout extends Vue {
 
     @Emit('view-order')
     viewOrder () {
-        console.log('view order')
+        // console.log('view order')
+    }
+    
+    @Emit('new-order')
+    newOrder () {
+        // console.log('new order')
     }
 }
 </script>

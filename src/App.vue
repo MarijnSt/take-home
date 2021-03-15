@@ -20,12 +20,13 @@
     <Confirm
     v-if="page === 'confirm'"
     :orderNumber="order[0].id"
-    @view-order="viewOrder"/>
+    @view-order="viewOrder"
+    @new-order="newOrder"/>
 
     <OrderSummary
     v-if="page === 'orderSummary'"
     :order="order[0]"
-    />
+    @new-order="newOrder"/>
   </div>
 </template>
 
@@ -80,12 +81,15 @@ export default class App extends Vue {
 
   placeOrder(order: Order) {
     this.order.push(order)
-    console.log('app', this.order)
     this.nextStep('confirm')
   }
 
   viewOrder(){
     this.nextStep('orderSummary')
+  }
+
+  newOrder(){
+    this.nextStep('newOrder')
   }
 
   nextStep(step: string) {
@@ -101,6 +105,11 @@ export default class App extends Vue {
         break;
       case 'orderSummary':
         this.page = 'orderSummary'
+        break;
+      case 'newOrder':
+        this.page = 'products'
+        this.cart = []
+        this.order = []
         break;
     }
   }
